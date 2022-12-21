@@ -5,7 +5,7 @@ import './comp/Navbar';
 import './comp/Hero';
 import './comp/Footer';
 
-import App from './views/app';
+import App from './views/App';
 import swRegister from './utils/sw-register';
 // import CONFIG from './global/config';
 

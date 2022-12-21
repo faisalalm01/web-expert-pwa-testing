@@ -5,7 +5,7 @@ const { DB_NAME, DB_VERSION, OBJECT_STORE_NAME } = CONFIG;
 
 const dbPromise = openDB(DB_NAME, DB_VERSION, {
   upgrade(db) {
-    db.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
+    db.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id', autoIncrement: true });
   },
 });
 const FavoriteRestoDB = {

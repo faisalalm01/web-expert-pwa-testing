@@ -19,10 +19,10 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
 
-    const mainCont = document.querySelector('#main-containaer');
+    // const mainCont = document.querySelector('#main-containaer');
     const detalCont = document.querySelector('#detail-resto');
 
-    mainCont.style.display = 'none';
+    // mainCont.style.display = 'none';
 
     try {
       const data = await RestoSource.detailResto(url.id);
@@ -31,14 +31,15 @@ const Detail = {
       detalCont.innerHTML += restoDetail(data.restaurant);
 
       LikeButtonInitiator.init({
-        LikeButtonContainer: document.querySelector('#likeButtonContainer'),
+        likeContainer: document.querySelector('#likeButtonContainer'),
         data,
       });
-      mainCont.style.display = 'block';
+      console.log(LikeButtonInitiator.likeContainer);
+      // mainCont.style.display = 'block';
     } catch (error) {
       console.error(error);
 
-      mainCont.style.display = 'block';
+      // mainCont.style.display = 'block';
       detalCont.innerHTML = `Error: ${error.message}`;
     }
   },

@@ -8,7 +8,7 @@ const restoCard = (resto) => `
 <div class="list_item_content">
     <p class="list_item_rating">
     Rating : 
-    <p class="list_item_rating_value">${resto.rating}</p>
+    <p class="list_item_rating_value">${resto.rating}⭐</p>
     </p>
     <p class="city">${resto.city}</p>
     <h1 class="list_item_title">${resto.name}</h1>

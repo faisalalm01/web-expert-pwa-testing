@@ -2,9 +2,9 @@
     "name" : "Katalog Resto",
     "short_name": "Kata Rest",
     "description": "Find your Favorite Resto in here",
+    "start_url": "index.html/",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
     "icons": [
         {
             "src": "./icons/icon-72x72",

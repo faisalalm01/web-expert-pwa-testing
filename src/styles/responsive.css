@@ -52,6 +52,17 @@
     .nav-list-block {
       display: flex;
     }
+    .detail-drink{ 
+      width: 100%;
+    }
+    .detail-food {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .detail-menu {
+      display: block;
+      column-gap: 20px;
+    }
   }
   
   /* Small devices ( >= 600px ) */
@@ -59,6 +70,7 @@
     .main-content__title {
       margin-bottom: 1em;
     }
+    
   
     #explore-restaurant,
     #fav-resto {

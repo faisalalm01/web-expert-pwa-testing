@@ -5,37 +5,38 @@ import {
 } from '../views/templates/like-button';
 
 const LikeButtonInitiator = {
-  async init({ LikeButtonContainer, restaurant }) {
-    this._LikeButtonContainer = LikeButtonContainer;
-    this._resto = restaurant;
+  async init({ likeContainer, data }) {
+    this._likeContainer = likeContainer;
+    this._resto = data.restaurant;
     await this._renderButton();
   },
   async _renderButton() {
     try {
       const { id } = this._resto;
-
       const restorant = await FavoriteRestoDB.getResto(id);
       if (restorant) {
-        this._renderLike();
-      } else {
         this._renderUnLike();
+        console.log(restorant);
+      } else {
+        this._renderLike();
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw new Error(error);
     }
   },
   _renderLike() {
-    this._LikeButtonContainer.innerHTML = createLikeButtonTemplate();
+    this._likeContainer.innerHTML = createLikeButtonTemplate();
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
       await FavoriteRestoDB.putResto(this._resto);
+      alert('like');
       this._renderButton();
     });
   },
 
   _renderUnLike() {
-    this._LikeButtonContainer.innerHTML = createUnLikeButtonTemplate();
+    this._likeContainer.innerHTML = createUnLikeButtonTemplate();
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
       await FavoriteRestoDB.deleteResto(this._resto.id);
